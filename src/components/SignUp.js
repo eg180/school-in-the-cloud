@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
+import { v4 as uuidv4 } from 'uuid';
 
 const FormContainerDiv = styled.div`
     padding: 2rem;
@@ -40,19 +41,25 @@ const StyledForm = styled.form`
 `;
 
 
-
-const handleChange = (e) => {
-    e.preventDefault()
-    console.log(e.target.value)
-}
-
 export default function SignUp() {
-    const [formDetails, setFormDetails] = useState();
+    const [formState, setFormState] = useState({userid: uuidv4(), username: "", email: "", password: "", accounttype: ""});
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(formState)
+    }
+
+    const handleChange = (e) => {
+        setFormState({
+            ...formState,
+            [e.target.name]: e.target.value
+        })
+    }
 
     return (
         <FormContainerDiv>
             <p>Create an account</p>
-            <StyledForm>
+            <StyledForm onSubmit={handleSubmit}>
                 <label> <span>Name: </span>
                     <input
                     name="username"
@@ -65,6 +72,7 @@ export default function SignUp() {
                     <input
                     name="email"
                     type="email"
+                    onChange={handleChange}
                     />
                 </label>
 
@@ -72,6 +80,7 @@ export default function SignUp() {
                     <input
                     name="password"
                     type="password"
+                    onChange={handleChange}
                     />
                 </label>
                 <RadioContainerDiv>

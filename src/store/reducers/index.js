@@ -1,8 +1,9 @@
 const initialState = {
-    admin: false,
-    student: false,
-    volunteer: false
-};
+    accounttype: {
+        admin: false,
+        student: false,
+        volunteer: false
+}};
 
 export const accountReducer = (state = initialState, action) => {
     switch (action.type) {

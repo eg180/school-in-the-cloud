@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
 
 const FormContainerDiv = styled.div`
@@ -41,12 +41,14 @@ const StyledForm = styled.form`
 
 
 
-const doSomething = (e) => {
+const handleChange = (e) => {
     e.preventDefault()
-    console.log('I love Delphy')
+    console.log(e.target.value)
 }
 
 export default function SignUp() {
+    const [formDetails, setFormDetails] = useState();
+
     return (
         <FormContainerDiv>
             <p>Create an account</p>
@@ -55,6 +57,7 @@ export default function SignUp() {
                     <input
                     name="username"
                     type="text"
+                    onChange={handleChange}
                     />
                 </label>
 
@@ -104,7 +107,7 @@ export default function SignUp() {
                             </label>
                         </div>
                 </RadioContainerDiv>
-                <button onClick={doSomething}>Submit</button>
+                <button>Submit</button>
             </StyledForm>
             
         </FormContainerDiv>

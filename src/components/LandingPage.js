@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 export default function LandingPage() {
     return (
-        <div>
-            <p>This is the landing page</p>
-        </div>
+        <section>
+            <p>This is the top section of the landing page</p>
+        </section>
     )
 }

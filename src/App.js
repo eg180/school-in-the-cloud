@@ -3,6 +3,11 @@ import { Switch, Route } from 'react-router-dom';
 import LandingPage from './components/LandingPage';
 import SignUp from './components/SignUp';
 import './App.css';
+import styled from 'styled-components';
+
+const StyledHeader =styled.header`
+
+`;
 
 function App() {
   return (

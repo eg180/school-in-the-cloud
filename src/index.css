@@ -29,8 +29,24 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	line-height: 1;
+  background-color: #312244;
+  line-height: 1;
+  color: grey;
 }
+
+a {
+  text-decoration: none;
+  color: #006466;
+}
+
+a:visited {
+  color: #006466;
+}
+
+a:hover {
+  color: #0e989b;
+}
+
 ol, ul {
 	list-style: none;
 }

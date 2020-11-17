@@ -1,12 +1,20 @@
+import { SET_ACCOUNT_TYPE } from "../actions";
+
 const initialState = {
-    accounttype: {
-        admin: false,
-        student: false,
-        volunteer: false
-}};
+    student: false,
+    volunteer: false,
+    admin: false,
+    isLoading: false
+};
 
 export const accountReducer = (state = initialState, action) => {
     switch (action.type) {
+        case SET_ACCOUNT_TYPE:
+            return {
+                ...state,
+                admin: true,
+                isLoading: true
+            }
         default:
             return state;
     }

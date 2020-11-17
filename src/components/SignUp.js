@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
+import { createAccount } from '../store/actions';
+import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
+
 
 const FormContainerDiv = styled.div`
     padding: 2rem;
@@ -41,12 +45,21 @@ const StyledForm = styled.form`
 `;
 
 
-export default function SignUp() {
+const SignUp = (props) => {
     const [formState, setFormState] = useState({userid: uuidv4(), username: "", email: "", password: "", accounttype: ""});
+
+    const history = useHistory();
+
+    const handleHistory = () => {
+        history.push("/dashboard");
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(formState)
+        // set up account here:
+        createAccount();
+        handleHistory();
     }
 
     const handleChange = (e) => {
@@ -58,6 +71,7 @@ export default function SignUp() {
 
     return (
         <FormContainerDiv>
+            {props.isLoading? <p>Loading...</p> : ''}
             <p>Create an account</p>
             <StyledForm onSubmit={handleSubmit}>
                 <label> <span>Name: </span>
@@ -121,4 +135,14 @@ export default function SignUp() {
             
         </FormContainerDiv>
     )
+
 }
+
+
+const mapStateToProps = (state) => {
+    return {
+        isLoading: state.isLoading
+    }
+}
+
+export default connect(mapStateToProps, {createAccount})(SignUp);

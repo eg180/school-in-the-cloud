@@ -4,7 +4,8 @@ const initialState = {
     student: false,
     volunteer: false,
     admin: false,
-    isLoading: false
+    isLoading: false,
+    testing: "works"
 };
 
 export const accountReducer = (state = initialState, action) => {

@@ -5,15 +5,16 @@ const Dashboard = (props) => {
     return (
         <div>
             <h1>This is your dashboard</h1>
-            classes shown here. Does this show true?
-            <h2>{props.state}</h2>
+            classes shown here. Does this show tsrue?!
+            <h2>{props.testing}</h2>
         </div>
     )
 }
 
 const mapStateToProps = (state) => {
     return {
-        admin: state.admin
+        admin: state.admin,
+        testing: state.testing
     }
 }
 

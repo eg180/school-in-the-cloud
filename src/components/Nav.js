@@ -8,7 +8,7 @@ const StyledNav = styled.nav`
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background-color: #212f45;
+    background-color: #ffffff;
     min-height: 7rem;
     p {
         margin-left: 1rem;
@@ -22,6 +22,7 @@ export default function Nav() {
         <StyledNav>
                 <p><Link to="/signup">Create an Account</Link></p>
                 <p><Link to="/">Home</Link></p>
+                <p><Link to="/about">About</Link></p>
 
         </StyledNav>
     )

@@ -7,6 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 const FormContainerDiv = styled.div`
+    color: #f4f3ee;
     padding: 2rem;
     background-color: #144552;
     display: flex;

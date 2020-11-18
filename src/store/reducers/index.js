@@ -1,21 +1,9 @@
-import { SET_ACCOUNT_TYPE } from "../actions";
+import { combineReducers } from 'redux';
 
-const initialState = {
-    student: false,
-    volunteer: false,
-    admin: false,
-    isLoading: false,
-    testing: "works"
-};
+import { userTypeReducer } from './UserTypeReducer';
+import vipReducer from './vipReducer';
 
-export const accountReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case SET_ACCOUNT_TYPE:
-            return {
-                ...state,
-                admin: true
-            }
-        default:
-            return state;
-    }
-};
+export default combineReducers({
+    userTypeReducer,
+    vipReducer
+})

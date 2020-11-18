@@ -9,11 +9,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import { accountReducer } from './store/reducers';
+import rootReducer from './store/reducers/';
 
 
 
-const store = createStore(accountReducer, applyMiddleware(thunk, logger));
+const store = createStore(rootReducer, applyMiddleware(thunk, logger));
+// const combineReducers = combineReducers()
+// const rootReducer = combineReducers({
+//     usertypeRed: userTypeReducer,
+//     vipRed: userVIPReducer
+
+// })
+
 
 ReactDOM.render(
   

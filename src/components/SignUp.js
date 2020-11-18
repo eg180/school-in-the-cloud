@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { createAccount } from '../store/actions';
+import { setAdmin, setStudent, setVolunteer } from '../store/actions';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
@@ -58,14 +58,15 @@ const SignUp = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(formState)
-        if (formState.role == "admin") {
-            console.log('You signed up as an admin')
+        if (formState.role === "admin") {
+            console.log('sending admin event to state')
+            props.setAdmin();
         } else {
             console.log("you did not sign up as an admin")
         }
         // set up account here:
         // createAccount();
-        // handleHistory();
+        handleHistory();
     }
 
     const handleChange = (e) => {
@@ -129,4 +130,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {createAccount})(SignUp);
+export default connect(mapStateToProps, { setAdmin })(SignUp);

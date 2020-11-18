@@ -10,12 +10,9 @@ const StyledDiv = styled.div`
 const Dashboard = (props) => {
     return (
         <StyledDiv>
-            {props.admin ? <h1>Admin Dashboard</h1> : null}
-            {props.student ? <h1>Student Dashboard</h1> : null}
-            {props.volunteer ? <h1>Volunteer Dashboard</h1> : null}
-
-            classes shown here. Does this show?
-            <h2>{props.testing? props.testing : null}</h2>
+            {props.admin ? <h2> not a student </h2> : <h2>props.admin not reached</h2>}
+            {props.vip ? <h2>hey</h2> : ''}
+        
         </StyledDiv>
     )
 }
@@ -25,7 +22,7 @@ const mapStateToProps = (state) => {
         admin: state.admin,
         student: state.student,
         volunteer: state.volunteer,
-        testing: state.testing
+        vip: state.vip
     }
 }
 

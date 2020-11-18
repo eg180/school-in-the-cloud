@@ -21,7 +21,7 @@ const FormContainerDiv = styled.div`
     }
 `;
 
-const RadioContainerDiv = styled.div`
+const SelectContainerDiv = styled.div`
     display: flex;
 `;
 
@@ -47,7 +47,7 @@ const StyledForm = styled.form`
 
 
 const SignUp = (props) => {
-    const [formState, setFormState] = useState({userid: uuidv4(), username: "", email: "", password: "", accounttype: ""});
+    const [formState, setFormState] = useState({id: uuidv4(), username: "", email: "", password: "", role: ""});
 
     const history = useHistory();
 
@@ -59,8 +59,8 @@ const SignUp = (props) => {
         e.preventDefault();
         console.log(formState)
         // set up account here:
-        createAccount();
-        handleHistory();
+        // createAccount();
+        // handleHistory();
     }
 
     const handleChange = (e) => {
@@ -98,39 +98,17 @@ const SignUp = (props) => {
                     onChange={handleChange}
                     />
                 </label>
-                <RadioContainerDiv>
+                <SelectContainerDiv>
                     <span>Acount type: </span>
                         <div>
-                            <label> Student
-                                <input
-                                name="accounttype"
-                                type="radio"
-                                id="student"
-                                value="student"
-                                />
-                            </label>
+                            <label htmlFor="acctype">Select a role:</label>
+                            <select name="role" id="role" onChange={handleChange}>
+                                <option value="student">student</option>
+                                <option value="volunteer">volunteer</option>
+                                <option value="admin">admin</option>
+                            </select>
                         </div>
-                        <div>
-                            <label> Volunteer
-                                <input
-                                name="accounttype"
-                                type="radio"
-                                id="volunteer"
-                                value="volunteer"
-                                />
-                            </label>
-                        </div>
-                        <div>
-                            <label> Admin
-                                <input
-                                name="accounttype"
-                                type="radio"
-                                id="admin"
-                                value="admin"
-                                />
-                            </label>
-                        </div>
-                </RadioContainerDiv>
+                </SelectContainerDiv>
                 <button>Submit</button>
             </StyledForm>
             

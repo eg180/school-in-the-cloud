@@ -13,8 +13,7 @@ export const accountReducer = (state = initialState, action) => {
         case SET_ACCOUNT_TYPE:
             return {
                 ...state,
-                admin: true,
-                isLoading: true
+                admin: true
             }
         default:
             return state;

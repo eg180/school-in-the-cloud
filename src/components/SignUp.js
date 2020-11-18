@@ -58,6 +58,11 @@ const SignUp = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(formState)
+        if (formState.role == "admin") {
+            console.log('You signed up as an admin')
+        } else {
+            console.log("you did not sign up as an admin")
+        }
         // set up account here:
         // createAccount();
         // handleHistory();

@@ -59,14 +59,19 @@ const SignUp = (props) => {
         e.preventDefault();
         // mimic database using localStorage
         const newUserInfo = formState;
-        console.log(newUserInfo)
+        // console.log(newUserInfo)
         // Put object into localStorage
+
+
+        // THIS IS WHERE YOU LEFT OFF!!!!
 
         window.localStorage.setItem('newUserInfo', JSON.stringify(newUserInfo));
 
-        const retrievedNewUserInfo = window.localStorage.getItem('newUserInfo');
+        let retrievedNewUserInfo = window.localStorage.getItem('newUserInfo');
+        let userInfo = JSON.parse(retrievedNewUserInfo);
         console.log('retrieved below:')
-        console.log('retrievedNewUserInfo', JSON.parse(retrievedNewUserInfo));
+        console.log(userInfo.username);
+
         // handleHistory();
     }
 

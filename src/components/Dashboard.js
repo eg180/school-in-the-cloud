@@ -10,8 +10,10 @@ const StyledDiv = styled.div`
 const Dashboard = (props) => {
     return (
         <StyledDiv>
-            {props.admin ? <h2> not a student </h2> : <h2>props.admin not reached</h2>}
-            {props.vip ? <h2>hey</h2> : ''}
+            {props.name ? <h2> Hello, {props.name} </h2> : <h2>props.admin not reached</h2>}
+            <div>
+                {props.admin ? <h2>Admin Dashboard</h2> : null}
+            </div>
         
         </StyledDiv>
     )
@@ -19,10 +21,11 @@ const Dashboard = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        admin: state.admin,
-        student: state.student,
-        volunteer: state.volunteer,
-        vip: state.vip
+        admin: state.userTypeReducer.admin,
+        student: state.userTypeReducer.student,
+        volunteer: state.userTypeReducer.volunteer,
+        vip: state.vipReducer.vip, 
+        name: state.userTypeReducer.name
     }
 }
 

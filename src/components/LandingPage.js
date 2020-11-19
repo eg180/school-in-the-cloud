@@ -22,7 +22,7 @@ const StyledHeroSection = styled.section`
 export default function LandingPage() {
     return (
         <StyledHeroSection>
-            <div>Welcome to School in the Cloud!</div>
+            <div>Practicing with React-Redux</div>
             
         </StyledHeroSection>
     )

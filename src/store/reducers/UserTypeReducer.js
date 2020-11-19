@@ -4,8 +4,9 @@ import { SET_AS_ADMIN, SET_AS_STUDENT
 
 const initialUserAccessState = {
     admin: false,
-    student: "hardcoded this as 'student' in state",
-    volunteer: false
+    student: false,
+    volunteer: false,
+    name: "Erick"
 };
 
 export const userTypeReducer = (state = initialUserAccessState, action) => {

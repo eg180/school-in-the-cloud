@@ -57,16 +57,17 @@ const SignUp = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formState)
-        if (formState.role === "admin") {
-            console.log('sending admin event to state')
-            props.setAdmin();
-        } else {
-            console.log("you did not sign up as an admin")
-        }
-        // set up account here:
-        // createAccount();
-        handleHistory();
+        // mimic database using localStorage
+        const newUserInfo = formState;
+        console.log(newUserInfo)
+        // Put object into localStorage
+
+        window.localStorage.setItem('newUserInfo', JSON.stringify(newUserInfo));
+
+        const retrievedNewUserInfo = window.localStorage.getItem('newUserInfo');
+        console.log('retrieved below:')
+        console.log('retrievedNewUserInfo', JSON.parse(retrievedNewUserInfo));
+        // handleHistory();
     }
 
     const handleChange = (e) => {

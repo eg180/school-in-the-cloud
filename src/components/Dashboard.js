@@ -21,8 +21,8 @@ const Dashboard = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        admin: state.userTypeReducer.admin,
-        student: state.userTypeReducer.student,
+        admin: state.userTypeReducer.accounttype.admin,
+        student: state.userTypeReducer.accounttype.student,
         volunteer: state.userTypeReducer.volunteer,
         vip: state.vipReducer.vip, 
         name: state.userTypeReducer.name

@@ -3,10 +3,12 @@ import { SET_AS_ADMIN, SET_AS_STUDENT
 
 
 const initialUserAccessState = {
-    admin: false,
-    student: false,
-    volunteer: false,
-    name: "Erick"
+    name: "Initial Name",
+    accounttype: {
+        admin: false,
+        student: false,
+        volunteer: false,
+    }
 };
 
 export const userTypeReducer = (state = initialUserAccessState, action) => {
@@ -14,7 +16,9 @@ export const userTypeReducer = (state = initialUserAccessState, action) => {
         case SET_AS_ADMIN:
             return {
                 ...state,
-                admin: true
+                accounttype: {
+                    admin: true
+                }
             }
         case SET_AS_STUDENT:
             return {

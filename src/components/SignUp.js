@@ -65,10 +65,10 @@ const SignUp = (props) => {
 
         // THIS IS WHERE YOU LEFT OFF!!!!
 
-        window.localStorage.setItem('newUserInfo', JSON.stringify(newUserInfo));
+        // window.localStorage.setItem('newUserInfo', JSON.stringify(newUserInfo));
 
-        let retrievedNewUserInfo = window.localStorage.getItem('newUserInfo');
-        let userInfo = JSON.parse(retrievedNewUserInfo);
+        // let retrievedNewUserInfo = window.localStorage.getItem('newUserInfo');
+        // let userInfo = JSON.parse(retrievedNewUserInfo);
 
         // let currentUserName = userInfo.username;
         // let currentEmail = userInfo.email;
@@ -77,7 +77,7 @@ const SignUp = (props) => {
         // let currentID = userInfo.id;
         
 
-        saveToLocalStorage(userInfo);
+        props.saveToLocalStorage(formState);
         handleHistory();
     }
 

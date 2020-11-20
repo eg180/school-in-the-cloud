@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import { userTypeReducer } from './UserTypeReducer';
-import vipReducer from './vipReducer';
+import { userTypeReducer } from './userTypeReducer';
+import { currentUserReducer } from './currentUserReducer';
 
 export default combineReducers({
     userTypeReducer,
-    vipReducer
+    currentUserReducer
 })

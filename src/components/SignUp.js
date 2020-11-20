@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { setAdmin, setStudent, setVolunteer } from '../store/actions';
+import { saveToLocalStorage } from '../store/actions';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
@@ -69,9 +69,15 @@ const SignUp = (props) => {
 
         let retrievedNewUserInfo = window.localStorage.getItem('newUserInfo');
         let userInfo = JSON.parse(retrievedNewUserInfo);
-        console.log('retrieved below:')
-        console.log(userInfo.username);
 
+        // let currentUserName = userInfo.username;
+        // let currentEmail = userInfo.email;
+        // let currentPassword = userInfo.password;
+        // let currentRole = userInfo.role;
+        // let currentID = userInfo.id;
+        
+
+        // saveToLocalStorage();
         // handleHistory();
     }
 
@@ -136,4 +142,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { setAdmin })(SignUp);
+
+
+export default connect(mapStateToProps, { saveToLocalStorage })(SignUp);

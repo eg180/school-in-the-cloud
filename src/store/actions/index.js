@@ -4,6 +4,8 @@ export const SET_AS_ADMIN = "SET_AS_ADMIN"
 export const SET_AS_STUDENT = "SET_AS_ADMIN"
 export const SET_AS_VOLUNTEER = "SET_AS_ADMIN"
 
+export const SAVE_USER_DETAILS = "SAVE_USER_DETAILS"
+
 export const SET_AS_VIP = "SET_AS_VIP"
 
 
@@ -29,9 +31,16 @@ export const setVolunteer = () => {
     }
 }
 
-    export const setVIP = () => {
-        return (dispatch) => {
-            dispatch({ type: SET_AS_VIP })
-            
-        }
+export const setVIP = () => {
+    return (dispatch) => {
+        dispatch({ type: SET_AS_VIP })
+        
     }
+}
+
+export const saveToLocalStorage = () => {
+    return (dispatch) => {
+        dispatch({ type: SAVE_USER_DETAILS })
+    }
+}
+

@@ -1,9 +1,13 @@
 import { SET_AS_ADMIN, SET_AS_STUDENT
 , SET_AS_VOLUNTEER } from "../actions";
 
+// getting info from localStorage
+
+
+//
 
 const initialUserAccessState = {
-    name: "Initial Name",
+    name: "",
     accounttype: {
         admin: false,
         student: false,

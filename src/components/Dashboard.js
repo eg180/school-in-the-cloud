@@ -7,10 +7,14 @@ const StyledDiv = styled.div`
     min-height: 70vh;
 `;
 
+
+
 const Dashboard = (props) => {
+
+
     return (
         <StyledDiv>
-            {props.name ? <h2> Hello, {props.name} </h2> : <h2>props.admin not reached</h2>}
+            {props.username ? <h2> Hello, {props.username} </h2> : <h2>No name provided</h2>}
             <div>
                 {props.admin ? <h2>Admin Dashboard</h2> : null}
             </div>
@@ -21,11 +25,7 @@ const Dashboard = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        admin: state.userTypeReducer.accounttype.admin,
-        student: state.userTypeReducer.accounttype.student,
-        volunteer: state.userTypeReducer.volunteer,
-        vip: state.vipReducer.vip, 
-        name: state.userTypeReducer.name
+        username: state.currentUserReducer.username
     }
 }
 

@@ -2,7 +2,9 @@ import { SAVE_USER_DETAILS } from "../actions";
 
 
 
+
 // getting info from localStorage that we set in SignUp form with handleSubmit
+
 
 let retrievedNewUserInfo = window.localStorage.getItem('newUserInfo');
 let userInfo = JSON.parse(retrievedNewUserInfo);
@@ -21,16 +23,16 @@ let currentPassword = userInfo.password;
 let currentRole = userInfo.role;
 let currentID = userInfo.id;
 
-console.log("current un is", currentUserName);
+
 
 // initialState
 
 const initialUserAccessState = {
     id: "",
     username: currentUserName,
-    accounttype: currentRole,
-    email: currentEmail,
-    password: currentPassword
+    // accounttype: currentRole,
+    // email: currentEmail,
+    // password: currentPassword
     // role: ""
 };
 
@@ -42,7 +44,7 @@ export const currentUserReducer = (state = initialUserAccessState, action) => {
             console.log('action.payload.username to the right: ', action.payload)
             return {
                 ...state,
-                username: currentUserName // get from window.localStorage
+                username: 'erick' // get from window.localStorage
                 // id: currentID,
                 // email: currentEmail,
                 // password: currentPassword

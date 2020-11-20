@@ -27,12 +27,12 @@ const Nav = (props) => {
 
     return (
         <StyledNav>
-                {props.username === null ? <p><Link to="/signup">Create an Account</Link></p> : <p><Link to="/signout">Logout</Link></p>}
-
-                {}
-
-                <p><Link to="/">Home</Link></p>
-                <p><Link to="/about">About</Link></p>
+        
+        <p><Link to="/dashboard">Dashboard</Link></p>
+        
+        <p><Link to="/">Home</Link></p>
+        <p><Link to="/about">About</Link></p>
+        {props.username === null ? <p><Link to="/signup">Create an Account</Link></p> : <p><Link to="/signout">Logout</Link></p>}
 
         </StyledNav>
     )

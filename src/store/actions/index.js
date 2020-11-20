@@ -1,12 +1,13 @@
 
 
-export const SET_AS_ADMIN = "SET_AS_ADMIN"
-export const SET_AS_STUDENT = "SET_AS_ADMIN"
-export const SET_AS_VOLUNTEER = "SET_AS_ADMIN"
+export const SET_AS_ADMIN = "SET_AS_ADMIN";
+export const SET_AS_STUDENT = "SET_AS_ADMIN";
+export const SET_AS_VOLUNTEER = "SET_AS_ADMIN";
 
-export const SAVE_USER_DETAILS = "SAVE_USER_DETAILS"
+export const SAVE_USER_DETAILS = "SAVE_USER_DETAILS";
+export const RESET_USER_DETAILS_STATE = "RESET_USER_DETAILS_STATE";
 
-export const SET_AS_VIP = "SET_AS_VIP"
+export const SET_AS_VIP = "SET_AS_VIP";
 
 
 export const setAdmin = () => {
@@ -46,5 +47,11 @@ export const saveToLocalStorage = (newUser) => {
         dispatch({ type: SAVE_USER_DETAILS, payload: newUser })
     }
 
+}
+
+export const logOutUser = () => {
+    return (dispatch) => {
+        dispatch({ type: RESET_USER_DETAILS_STATE })
+    }
 }
 

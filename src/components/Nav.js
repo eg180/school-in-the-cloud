@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link, useHistory } from "react-router-dom";
 import { connect } from 'react-redux';
+import { logOutUser } from '../store/actions';
 import styled from 'styled-components';
+
 
 
 const StyledNav = styled.nav`
@@ -21,18 +23,22 @@ const StyledNav = styled.nav`
 
 const Nav = (props) => {
 
-    const logOutUser = () => {
-        window.localStorage.clear();
+    const handleLogOut = (e) => {
+        e.preventDefault();
+        props.logOutUser();
+        // window.localStorage.clear();
     }
 
     return (
         <StyledNav>
+
+        {props.username ? <p><Link to="/dashboard">Dashboard</Link></p> : null }
         
-        <p><Link to="/dashboard">Dashboard</Link></p>
+        
         
         <p><Link to="/">Home</Link></p>
         <p><Link to="/about">About</Link></p>
-        {props.username === null ? <p><Link to="/signup">Create an Account</Link></p> : <p><Link to="/signout">Logout</Link></p>}
+        {!props.username ? <p><Link to="/signup">Create an Account</Link></p> : <p><Link to="/signout" onClick={handleLogOut}>Logout</Link></p>}
 
         </StyledNav>
     )
@@ -44,4 +50,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(Nav);
+export default connect(mapStateToProps, { logOutUser })(Nav);

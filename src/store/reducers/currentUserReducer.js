@@ -1,4 +1,4 @@
-import { SAVE_USER_DETAILS } from "../actions/index.js";
+import { SAVE_USER_DETAILS, RESET_USER_DETAILS_STATE } from "../actions/index.js";
 
 
 
@@ -29,11 +29,11 @@ import { SAVE_USER_DETAILS } from "../actions/index.js";
 
 const stateOne = {
     id: "",
-    username: "no user name yet",
+    username: "",
     // accounttype: currentRole,
     // email: currentEmail,
     // password: currentPassword
-    // role: ""
+    role: ""
 };
 
 
@@ -43,15 +43,20 @@ export const currentUserReducer = (state = stateOne, action) => {
             console.log('Inside SAVE_USER_DETAILS case!')
             return {
                 ...state,
-                username: action.payload.username // get from window.localStorage
+                username: action.payload.username,
+                role: action.payload.role
                 // id: currentID,
                 // email: currentEmail,
                 // password: currentPassword
-                // role: currentRole // get from window.localStorage
-                // accounttype: {
-                //     admin: true
-                // }
             }
+            case RESET_USER_DETAILS_STATE:
+                return {
+                    ...state,
+                    username: "",
+                    role: ""
+                }
+
+        
         default:
             return state;
     }

@@ -121,6 +121,7 @@ const SignUp = (props) => {
                         <div>
                             <label htmlFor="acctype">Select a role:</label>
                             <select name="role" id="role" onChange={handleChange}>
+                                <option value="">--Select a role--</option>
                                 <option value="student">student</option>
                                 <option value="volunteer">volunteer</option>
                                 <option value="admin">admin</option>

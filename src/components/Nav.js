@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 
@@ -16,13 +17,31 @@ const StyledNav = styled.nav`
     }
 `;
 
-export default function Nav() {
+
+
+const Nav = (props) => {
+
+    const logOutUser = () => {
+        window.localStorage.clear();
+    }
+
     return (
         <StyledNav>
-                <p><Link to="/signup">Create an Account</Link></p>
+                {props.username === null ? <p><Link to="/signup">Create an Account</Link></p> : <p><Link to="/signout">Logout</Link></p>}
+
+                {}
+
                 <p><Link to="/">Home</Link></p>
                 <p><Link to="/about">About</Link></p>
 
         </StyledNav>
     )
 }
+
+const mapStateToProps = (state) => {
+    return {
+        username: state.currentUserReducer.username
+    }
+}
+
+export default connect(mapStateToProps, {})(Nav);

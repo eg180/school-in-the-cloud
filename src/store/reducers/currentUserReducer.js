@@ -14,7 +14,6 @@ let userInfo = JSON.parse(retrievedNewUserInfo);
 // set that up for the reducer
 
 
-// SETTING CONSTANTS FROM LOCALSTORAGE - see above
 
 let currentUserName = userInfo.username;
 let currentEmail = userInfo.email;

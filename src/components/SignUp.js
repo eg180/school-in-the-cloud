@@ -77,8 +77,8 @@ const SignUp = (props) => {
         // let currentID = userInfo.id;
         
 
-        // saveToLocalStorage();
-        // handleHistory();
+        saveToLocalStorage(userInfo);
+        handleHistory();
     }
 
     const handleChange = (e) => {

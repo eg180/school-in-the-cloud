@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components'
 
@@ -11,12 +11,16 @@ const StyledDiv = styled.div`
 
 const Dashboard = (props) => {
 
+    useEffect(() => {
+        console.log('username updated perhaps')
+    }, [props.username]);
+
 
     return (
         <StyledDiv>
             {props.username ? <h2> Hello, {props.username} </h2> : <h2>No name provided</h2>}
             <div>
-                {props.admin ? <h2>Admin Dashboard</h2> : null}
+                {props.username ? <h2>Admin Dashboard</h2> : null}
             </div>
         
         </StyledDiv>
@@ -24,6 +28,7 @@ const Dashboard = (props) => {
 }
 
 const mapStateToProps = (state) => {
+
     return {
         username: state.currentUserReducer.username
     }

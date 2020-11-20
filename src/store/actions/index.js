@@ -38,9 +38,11 @@ export const setVIP = () => {
     }
 }
 
-export const saveToLocalStorage = () => {
+export const saveToLocalStorage = (newUser) => {
+    console.log('newUser in line 42', newUser)
+    console.log('newUser type in line 43', typeof(newUser))
     return (dispatch) => {
-        dispatch({ type: SAVE_USER_DETAILS })
+        dispatch({ type: SAVE_USER_DETAILS, payload: newUser })
     }
 }
 

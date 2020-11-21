@@ -11,6 +11,8 @@ export const SET_AS_VIP = "SET_AS_VIP";
 
 export const ADD_VOLUNTEER = "ADD_VOLUNTEER";
 
+export const ADD_TASK = "ADD_TASK";
+
 
 export const setAdmin = () => {
     return (dispatch) => {
@@ -50,6 +52,11 @@ export const saveToLocalStorage = (newUser) => {
     }
 
 }
+export const addVolunteer = (newUser) => {
+    return (dispatch) => {
+        dispatch({ type: ADD_VOLUNTEER, payload: newUser })
+    }
+}
 
 export const logOutUser = () => {
     return (dispatch) => {
@@ -57,9 +64,10 @@ export const logOutUser = () => {
     }
 }
 
-export const addVolunteer = () => {
-    return (dispatch) => {
-        dispatch({ type: ADD_VOLUNTEER })
-    }
-}
+
+// export const createTask = () => {
+//     return (dispatch) => {
+//         dispatch({ type:  ADD_TASK })
+//     }
+// }
 

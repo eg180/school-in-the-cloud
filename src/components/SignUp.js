@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { saveToLocalStorage } from '../store/actions';
+import { saveToLocalStorage, addVolunteer } from '../store/actions';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
@@ -59,26 +59,14 @@ const SignUp = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // mimic database using localStorage
+
         const newUserInfo = formState;
-        // console.log(newUserInfo)
-        // Put object into localStorage
 
-
-        // THIS IS WHERE YOU LEFT OFF!!!!
-
-        // window.localStorage.setItem('newUserInfo', JSON.stringify(newUserInfo));
-
-        // let retrievedNewUserInfo = window.localStorage.getItem('newUserInfo');
-        // let userInfo = JSON.parse(retrievedNewUserInfo);
-
-        // let currentUserName = userInfo.username;
-        // let currentEmail = userInfo.email;
-        // let currentPassword = userInfo.password;
-        // let currentRole = userInfo.role;
-        // let currentID = userInfo.id;
-        
-
+        // create conditional action based on account type
+        if (newUserInfo.role === "volunteer") {
+            console.log('inside line 67')
+            props.addVolunteer(formState);
+        }
         props.saveToLocalStorage(formState);
         handleHistory();
     }
@@ -119,16 +107,15 @@ const SignUp = (props) => {
                     />
                 </label>
                 <SelectContainerDiv>
-                    <span>Acount type: </span>
-                        <div>
-                            <label htmlFor="acctype">Select a role:</label>
-                            <select name="role" id="role" onChange={handleChange}>
-                                <option value="">--Select a role--</option>
-                                <option value="student">student</option>
-                                <option value="volunteer">volunteer</option>
-                                <option value="admin">admin</option>
-                            </select>
-                        </div>
+                    <div>
+                        <label htmlFor="acctype">Select a role:</label>
+                        <select name="role" id="role" onChange={handleChange}>
+                            <option value="">--Select a role--</option>
+                            <option value="student">student</option>
+                            <option value="volunteer">volunteer</option>
+                            <option value="admin">admin</option>
+                        </select>
+                    </div>
                 </SelectContainerDiv>
                 <button>Submit</button>
             </StyledForm>
@@ -147,4 +134,4 @@ const mapStateToProps = (state) => {
 
 
 
-export default connect(mapStateToProps, { saveToLocalStorage })(SignUp);
+export default connect(mapStateToProps, { saveToLocalStorage, addVolunteer })(SignUp);

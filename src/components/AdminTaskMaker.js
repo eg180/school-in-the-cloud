@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import '../index.css';
 import styled from 'styled-components';
@@ -22,6 +22,11 @@ const StyledTaskContainerDiv = styled.div`
 `;
 
 export const AdminTaskMaker = (props) => {
+
+    useEffect(() => {
+        console.log('volunteers list refreshed?')
+    },[props.volunteers]);
+
     return (
         <StyledTaskContainerDiv>
             <div>
@@ -39,6 +44,12 @@ export const AdminTaskMaker = (props) => {
                         })}
                     </select>
                 </form>
+                <div>
+                    <ul>Tasks</ul>
+                        {props.volunteers.map((volunteer, indx) => {
+                            return <li key={indx}>{volunteer.username}{volunteer.task}</li>
+                        })}
+                </div>
             </div>
         </StyledTaskContainerDiv>
     )

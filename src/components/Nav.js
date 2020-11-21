@@ -23,9 +23,13 @@ const StyledNav = styled.nav`
 
 const Nav = (props) => {
 
+    const { history } = useHistory();
+
     const handleLogOut = (e) => {
         e.preventDefault();
         props.logOutUser();
+        history.push('/');
+        
         // window.localStorage.clear();
     }
 

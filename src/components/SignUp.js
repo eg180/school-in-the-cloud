@@ -13,7 +13,9 @@ const FormContainerDiv = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: stretch;
-    min-height: 35vh;
+    min-width: 35vh;
+    max-width: 45vh;
+    min-height: 70vh;
     border-radius: 10px;
     margin: 5rem 35rem 5rem 35rem;
     p {

@@ -25,7 +25,7 @@ function App() {
         <Route path="/signup" component={SignUp} />
         <Route path="/about" component={About} />
         <Route path="/dashboard" component={Dashboard} />
-        <Route path="/tasks" component={AdminTaskManager} />
+        <Route path="/create-task" component={AdminTaskManager} />
       </Switch>
       <Footer />
     </div>

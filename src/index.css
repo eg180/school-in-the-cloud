@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Quicksand&family=Work+Sans:wght@300&display=swap');
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -30,6 +32,9 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
   background-color: #312244;
+  /* font-family: 'Libre Baskerville', serif;
+  font-family: 'Quicksand', sans-serif; */
+  font-family: 'Work Sans', sans-serif;
 
   line-height: 1;
   color: #333533

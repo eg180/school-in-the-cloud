@@ -5,6 +5,7 @@ import Dashboard from './components/Dashboard';
 import About from './components/About';
 import SignUp from './components/SignUp';
 import Footer from './components/Footer';
+import AdminTaskManager from './components/AdminTaskMaker';
 import './App.css';
 import styled from 'styled-components';
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/signup" component={SignUp} />
         <Route path="/about" component={About} />
         <Route path="/dashboard" component={Dashboard} />
+        <Route path="/tasks" component={AdminTaskManager} />
       </Switch>
       <Footer />
     </div>

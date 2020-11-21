@@ -21,7 +21,7 @@ const StyledTaskContainerDiv = styled.div`
     }
 `;
 
-export const AdminTaskMaker = () => {
+export const AdminTaskMaker = (props) => {
     return (
         <StyledTaskContainerDiv>
             <div>
@@ -34,9 +34,9 @@ export const AdminTaskMaker = () => {
                     />
                     <select name="role" id="role">
                         <option value="">--Select Volunteer--</option>
-                        <option value="student">student</option>
-                        <option value="volunteer">volunteer</option>
-                        <option value="admin">admin</option>
+                        {props.volunteers.map((volunteer, indx) => {
+                            return <option key={indx}>{volunteer.username}</option>
+                        })}
                     </select>
                 </form>
             </div>
@@ -45,7 +45,7 @@ export const AdminTaskMaker = () => {
 }
 
 const mapStateToProps = (state) => ({
-    
+    volunteers: state.volunteersListReducer
 })
 
 

@@ -9,6 +9,8 @@ export const RESET_USER_DETAILS_STATE = "RESET_USER_DETAILS_STATE";
 
 export const SET_AS_VIP = "SET_AS_VIP";
 
+export const ADD_VOLUNTEER = "ADD_VOLUNTEER";
+
 
 export const setAdmin = () => {
     return (dispatch) => {
@@ -52,6 +54,12 @@ export const saveToLocalStorage = (newUser) => {
 export const logOutUser = () => {
     return (dispatch) => {
         dispatch({ type: RESET_USER_DETAILS_STATE })
+    }
+}
+
+export const addVolunteer = () => {
+    return (dispatch) => {
+        dispatch({ type: ADD_VOLUNTEER })
     }
 }
 

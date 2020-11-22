@@ -52,6 +52,7 @@ export const currentUserReducer = (state = stateOne, action) => {
             case RESET_USER_DETAILS_STATE:
                 return {
                     ...state,
+                    id: "",
                     username: "",
                     role: ""
                 }

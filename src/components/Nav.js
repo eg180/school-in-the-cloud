@@ -23,14 +23,14 @@ const StyledNav = styled.nav`
 
 const Nav = (props) => {
 
-    const { history } = useHistory();
+
+    const history = useHistory();
 
     const handleLogOut = (e) => {
+        console.log('clicked on logout')
         e.preventDefault();
         props.logOutUser();
-        history.push('/');
-        
-        // window.localStorage.clear();
+        history.push("/");
     }
 
     return (

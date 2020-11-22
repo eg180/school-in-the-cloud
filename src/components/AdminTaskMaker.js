@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
+import { createTask } from '../store/actions';
 import '../index.css';
 import styled from 'styled-components';
 
 const StyledTaskContainerDiv = styled.div`
+    font-family: 'Work Sans', sans-serif;
     background-color: #d8e2dc;
     background-color: red;
     display: flex;
@@ -19,13 +21,35 @@ const StyledTaskContainerDiv = styled.div`
     input {
         min-width: 30vh
     }
+    ul {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        font-family: 'Work Sans', sans-serif;
+        font-size: 1.75rem;
+    }
 `;
 
 export const AdminTaskMaker = (props) => {
+    const [volunteerFormState, setVolunteerFormState] = useState({username: "", task: ""});
 
     useEffect(() => {
         console.log('volunteers list refreshed?')
     },[props.volunteers]);
+
+    const handleChange = e => {
+        console.log(e.target.name)
+        console.log(e.target.value)
+        setVolunteerFormState({
+            ...volunteerFormState,
+            [e.target.name]: e.target.value
+        })
+    }
+    
+    const handleUpdateTask = (e) => {
+        e.preventDefault();
+        console.log(volunteerFormState);
+        // props.createTask(volunteerFormState);
+    }
 
     return (
         <StyledTaskContainerDiv>
@@ -36,18 +60,21 @@ export const AdminTaskMaker = (props) => {
                 <form>
                     <input
                     name="task"
+                    value={volunteerFormState.task}
+                    onChange={handleChange}
                     />
-                    <select name="role" id="role">
-                        <option value="">--Select Volunteer--</option>
+                    <select name="username" id="role" onChange={handleChange}>
+                        <option selected>--Select Volunteer--</option>
                         {props.volunteers.map((volunteer, indx) => {
-                            return <option key={indx}>{volunteer.username}</option>
+                            return <option key={indx} value={volunteer.username}>{volunteer.username}</option>
                         })}
                     </select>
+                    <button onClick={handleUpdateTask}>Add Task for selected volunteer</button>
                 </form>
                 <div>
                     <ul>Tasks</ul>
                         {props.volunteers.map((volunteer, indx) => {
-                            return <li key={indx}>{volunteer.username}{volunteer.task}</li>
+                            return <li key={indx}>{volunteer.username}: {volunteer.task}</li>
                         })}
                 </div>
             </div>
@@ -60,5 +87,5 @@ const mapStateToProps = (state) => ({
 })
 
 
-export default connect(mapStateToProps, {})(AdminTaskMaker)
+export default connect(mapStateToProps, { createTask })(AdminTaskMaker)
 

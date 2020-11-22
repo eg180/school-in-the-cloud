@@ -18,7 +18,7 @@ function App() {
   return (
     <div>
       <StyledHeader>
-        <Nav />
+      <Nav />
       </StyledHeader>
       <Switch>
         <Route exact path="/" component={LandingPage} />
@@ -26,8 +26,8 @@ function App() {
         <Route path="/about" component={About} />
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/create-task" component={AdminTaskManager} />
+        <Footer />
       </Switch>
-      <Footer />
     </div>
   );
 }

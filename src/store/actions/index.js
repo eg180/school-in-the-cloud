@@ -65,9 +65,9 @@ export const logOutUser = () => {
 }
 
 
-// export const createTask = () => {
-//     return (dispatch) => {
-//         dispatch({ type:  ADD_TASK })
-//     }
-// }
+export const createTask = (newTask) => {
+    return (dispatch) => {
+        dispatch({ type:  ADD_TASK, payload: newTask })
+    }
+}
 

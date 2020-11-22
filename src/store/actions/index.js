@@ -44,7 +44,7 @@ export const setVIP = () => {
 }
 
 export const saveToLocalStorage = (newUser) => {
-    console.log('newUser in line 42', newUser)
+    console.log('newUser in line 47', newUser)
     // console.log('newUser typeå in line 43', typeof(newUser))
     console.log('currently inside actions - about to dispatch')
     return (dispatch) => {
@@ -53,6 +53,7 @@ export const saveToLocalStorage = (newUser) => {
 
 }
 export const addVolunteer = (newUser) => {
+    console.log('newUser / volunteer in line 56', newUser)
     return (dispatch) => {
         dispatch({ type: ADD_VOLUNTEER, payload: newUser })
     }
@@ -66,6 +67,7 @@ export const logOutUser = () => {
 
 
 export const createTask = (newTask) => {
+    console.log('about to dispatch ADD_TASK - LINE 70 IN INDEX.JS')
     return (dispatch) => {
         dispatch({ type:  ADD_TASK, payload: newTask })
     }

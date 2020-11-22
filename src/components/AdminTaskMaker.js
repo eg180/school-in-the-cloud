@@ -48,7 +48,7 @@ export const AdminTaskMaker = (props) => {
     const handleUpdateTask = (e) => {
         e.preventDefault();
         console.log(volunteerFormState);
-        // props.createTask(volunteerFormState);
+        props.createTask(volunteerFormState);
     }
 
     return (

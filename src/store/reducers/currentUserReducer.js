@@ -43,6 +43,7 @@ export const currentUserReducer = (state = stateOne, action) => {
             console.log('Inside SAVE_USER_DETAILS case!')
             return {
                 ...state,
+                id: action.payload.id,
                 username: action.payload.username,
                 role: action.payload.role
                 // id: currentID,

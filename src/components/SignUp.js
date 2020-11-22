@@ -65,6 +65,7 @@ const SignUp = (props) => {
         // create conditional action based on account type
         if (newUserInfo.role === "volunteer") {
             console.log('inside line 67')
+            console.log(formState);
             props.addVolunteer(formState);
         }
         props.saveToLocalStorage(formState);

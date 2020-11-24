@@ -1,8 +1,8 @@
 import { ADD_VOLUNTEER, ADD_TASK } from '../actions';
 const initialState = [
-    {id: "", username: "Jane Derp", task: "Send welcome message to students."},
-    {id: "", username: "Herpin Fart", task: "Derp all day."},
-    {id: "", username: "Dude Shirt", task: "Do your thang."}
+    {username: "Jane Derp", task: "Send welcome message to students."},
+    {username: "Herpin Fart", task: "Derp all day."},
+    {username: "Dude Shirt", task: "Do your thang."}
 ];
 
 export const volunteersListReducer = (state = initialState, action) => {
@@ -10,17 +10,16 @@ export const volunteersListReducer = (state = initialState, action) => {
         case ADD_VOLUNTEER:
             return [{
                 ...state, 
-                id: action.payload.id,
+                // id: action.payload.id,
                 username: action.payload.username,
-                task: ""
+                task: "Does this show up?"
             }]
         case ADD_TASK:
+            console.log('inside add task - nothing being returned. Still crashes?')
             return {
                 ...state,
-                // username: action.payload.username,
-                username: action.payload.username,
-                task: action.payload.task
-            }
+                username: action.payload.username, task: action.payload.task
+            };
     default:
         return state;
     }

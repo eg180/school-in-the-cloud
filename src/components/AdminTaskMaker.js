@@ -34,7 +34,7 @@ export const AdminTaskMaker = (props) => {
 
     useEffect(() => {
         console.log('volunteers list refreshed?')
-    },[props.volunteers]);
+    },[]);
 
     const handleChange = e => {
         console.log(e.target.name)
@@ -47,8 +47,9 @@ export const AdminTaskMaker = (props) => {
     
     const handleUpdateTask = (e) => {
         e.preventDefault();
-        console.log(volunteerFormState);
+        console.log("this is what gets submitted", volunteerFormState);
         props.createTask(volunteerFormState);
+
     }
 
     return (
@@ -65,17 +66,17 @@ export const AdminTaskMaker = (props) => {
                     />
                     <select name="username" id="role" onChange={handleChange}>
                         <option selected>--Select Volunteer--</option>
-                        {props.volunteers.map((volunteer, indx) => {
+                        {props.volunteers ? props.volunteers.map((volunteer, indx) => {
                             return <option key={indx} value={volunteer.username}>{volunteer.username}</option>
-                        })}
+                        }) : <p>Add task</p>}
                     </select>
                     <button onClick={handleUpdateTask}>Add Task for selected volunteer</button>
                 </form>
                 <div>
                     <ul>Tasks</ul>
-                        {props.volunteers.map((volunteer, indx) => {
+                        {props.volunteers ? props.volunteers.map((volunteer, indx) => {
                             return <li key={indx}>{volunteer.username}: {volunteer.task}</li>
-                        })}
+                        }) : <p>No tasks</p>}
                 </div>
             </div>
         </StyledTaskContainerDiv>

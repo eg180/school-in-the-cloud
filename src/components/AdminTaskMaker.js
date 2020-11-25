@@ -18,6 +18,11 @@ const StyledTaskContainerDiv = styled.div`
         margin-top: 4rem;
         margin-bottom: 4rem
     }
+    #tasks {
+        font-size: 2rem;
+        margin-top: 4rem;
+        margin-bottom: 4rem
+    }
     input {
         min-width: 30vh
     }
@@ -31,10 +36,11 @@ const StyledTaskContainerDiv = styled.div`
 
 export const AdminTaskMaker = (props) => {
     const [volunteerFormState, setVolunteerFormState] = useState({username: "", task: ""});
+    const [taskObjects, setTaskObjects] = useState([{task: ""}]);
 
-    useEffect(() => {
-        console.log('volunteers list refreshed?')
-    },[]);
+  
+
+
 
     const handleChange = e => {
         console.log(e.target.name)
@@ -73,10 +79,10 @@ export const AdminTaskMaker = (props) => {
                     <button onClick={handleUpdateTask}>Add Task for selected volunteer</button>
                 </form>
                 <div>
-                    <ul>Tasks</ul>
-                        {props.volunteers ? props.volunteers.map((volunteer, indx) => {
-                            return <li key={indx}>{volunteer.username}: {volunteer.task}</li>
-                        }) : <p>No tasks</p>}
+                    {props.volunteers ? Object.keys(props.volunteers).map((obj, indx) => {
+                        return <p key={indx}>{obj}</p>
+                    }) : null}
+                    
                 </div>
             </div>
         </StyledTaskContainerDiv>

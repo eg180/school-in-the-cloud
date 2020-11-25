@@ -1,8 +1,22 @@
 import { ADD_VOLUNTEER, ADD_TASK } from '../actions';
 const initialState = [
-    {username: "Jane Derp", task: "Send welcome message to students."},
-    {username: "Herpin Fart", task: "Derp all day."},
-    {username: "Dude Shirt", task: "Do your thang."}
+    {
+        username: "Erick",
+        tasks: [
+            {task: "Call Delphine"},
+            {task: "Tell Delphine you love her"},
+            {task: "Ask Christian how he's doing."}
+        ]
+    },
+    {
+        username: "Herp",
+        tasks: [
+            {task: "Derp a little"},
+            {task: "Herp a bit."},
+            {task: "Eat something derpily."}
+        ]
+    },
+
 ];
 
 export const volunteersListReducer = (state = initialState, action) => {

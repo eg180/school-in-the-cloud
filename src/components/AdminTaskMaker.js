@@ -79,9 +79,7 @@ export const AdminTaskMaker = (props) => {
                     <button onClick={handleUpdateTask}>Add Task for selected volunteer</button>
                 </form>
                 <div>
-                    {props.volunteers ? Object.keys(props.volunteers).map((obj, indx) => {
-                        return <p key={indx}>{obj}</p>
-                    }) : null}
+                    
                     
                 </div>
             </div>
@@ -90,7 +88,7 @@ export const AdminTaskMaker = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-    volunteers: state.volunteersListReducer
+    volunteers: state.volunteersListReducer.volunteers
 })
 
 

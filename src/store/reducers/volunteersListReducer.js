@@ -1,24 +1,23 @@
 import { ADD_VOLUNTEER, ADD_TASK } from '../actions';
-const initialState = [
-    {
-        username: "Erick",
-        tasks: [
-            {task: "Call Delphine"},
-            {task: "Tell Delphine you love her"},
-            {task: "Ask Christian how he's doing."}
-        ]
-    },
-    {
-        username: "Herp",
-        tasks: [
-            {task: "Derp a little"},
-            {task: "Herp a bit."},
-            {task: "Eat something derpily."}
-        ]
-    },
-
-];
-
+const initialState = {
+    volunteers: [
+        {
+            username: "Erick",
+            tasks: [
+                {task: "Call Delphine"},
+                {task: "kiss Delphine"}
+            ]
+        },
+        {
+            username: "Delphine",
+            tasks: [
+                {task: "Hiccup"},
+                {task: "Make soup"},
+                {task: "Read"}
+            ]
+        }
+    ]
+}
 export const volunteersListReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_VOLUNTEER:

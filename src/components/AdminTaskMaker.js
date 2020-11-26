@@ -73,13 +73,30 @@ export const AdminTaskMaker = (props) => {
                     <select name="username" id="role" onChange={handleChange}>
                         <option selected>--Select Volunteer--</option>
                         {props.volunteers ? props.volunteers.map((volunteer, indx) => {
-                            return <option key={indx} value={volunteer.username}>{volunteer.username}</option>
+                            <option key={indx} value={volunteer.username}>{volunteer.username}</option>
                         }) : <p>Add task</p>}
                     </select>
                     <button onClick={handleUpdateTask}>Add Task for selected volunteer</button>
                 </form>
                 <div>
-                    
+                    <h2>Tasks</h2>
+                        {props.volunteers ? props.volunteers.map((volunteer, indx) => {
+                            return (
+                            <div>
+                                <div>
+                                    {volunteer.username}
+                                </div>
+                                <div>
+                                    {volunteer.tasks.map((sub) => {
+                                        return (
+                                            <li>{sub.task}</li>
+                                        )
+                                    })}
+                                </div>
+                            </div>
+
+                            )
+                        }) : <p>No Tasks yet</p>}
                     
                 </div>
             </div>

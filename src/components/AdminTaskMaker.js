@@ -35,8 +35,12 @@ const StyledTaskContainerDiv = styled.div`
 `;
 
 export const AdminTaskMaker = (props) => {
-    const [volunteerFormState, setVolunteerFormState] = useState({username: "", task: ""});
+    const [volunteerFormState, setVolunteerFormState] = useState({username: "", tasks: [{task: ""}]});
     const [taskObjects, setTaskObjects] = useState([{task: ""}]);
+
+    useEffect(() => {
+        console.log('volunteer prob updated')
+    },[props.volunteers]);
 
   
 
@@ -45,10 +49,17 @@ export const AdminTaskMaker = (props) => {
     const handleChange = e => {
         console.log(e.target.name)
         console.log(e.target.value)
-        setVolunteerFormState({
-            ...volunteerFormState,
-            [e.target.name]: e.target.value
-        })
+        if (e.target.name === "username") {
+            setVolunteerFormState({
+                ...volunteerFormState,
+                [e.target.name]: e.target.value
+            })
+        } else {
+            setVolunteerFormState({
+                ...volunteerFormState,
+                tasks: [e.target.value]
+            })
+        }
     }
     
     const handleUpdateTask = (e) => {
@@ -73,7 +84,7 @@ export const AdminTaskMaker = (props) => {
                     <select name="username" id="role" onChange={handleChange}>
                         <option selected>--Select Volunteer--</option>
                         {props.volunteers ? props.volunteers.map((volunteer, indx) => {
-                            <option key={indx} value={volunteer.username}>{volunteer.username}</option>
+                            return <option key={indx} value={volunteer.username}>{volunteer.username}</option>
                         }) : <p>Add task</p>}
                     </select>
                     <button onClick={handleUpdateTask}>Add Task for selected volunteer</button>

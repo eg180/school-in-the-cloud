@@ -19,21 +19,25 @@ const initialState = {
     ]
 }
 export const volunteersListReducer = (state = initialState, action) => {
+
     switch (action.type) {
         case ADD_VOLUNTEER:
-            return [{
-                ...state, 
-                // id: action.payload.id,
-                username: action.payload.username,
-                task: "Does this show up?"
-            }]
-        case ADD_TASK:
-            console.log('inside add task - nothing being returned. Still crashes?')
+            
+
             return {
                 ...state,
-                username: action.payload.username, task: action.payload.task
-            };
-    default:
-        return state;
-    }
+                tasks: [{tasks: ""}]
+
+            }
+        case ADD_TASK:
+
+            return {
+                ...state,
+                tasks: [action.payload.task] 
+            }
+        default:
+            return state;
+
+        };
+      
 }

@@ -49,6 +49,7 @@ const Dashboard = (props) => {
         <StyledDiv>
             <div>
                 {props.username ? <p><span id="title"> Hello, {props.username}</span> You are signed in as <span id="user-role">{props.role}</span></p> : null}
+                {props.id ? <p>Your user ID is {props.id}</p> : null}
             </div>
             {/* BELOW IS CONDITIONAL FORMATTING TO SHOW AdminPanelDiv IF ADMIN SIGNED IN */}
             {props.role === 'admin' ?
@@ -70,7 +71,8 @@ const mapStateToProps = (state) => {
 
     return {
         username: state.currentUserReducer.username,
-        role: state.currentUserReducer.role
+        role: state.currentUserReducer.role,
+        id: state.currentUserReducer.id
     }
 }
 

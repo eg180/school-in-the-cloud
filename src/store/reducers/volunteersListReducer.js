@@ -2,6 +2,7 @@ import { ADD_VOLUNTEER, ADD_TASK } from '../actions';
 const initialState = {
     volunteers: [
         {
+            id: "1",
             username: "Erick",
             tasks: [
                 {task: "Call Delphine"},
@@ -9,10 +10,11 @@ const initialState = {
             ]
         },
         {
+            id: "2",
             username: "Delphine",
             tasks: [
-                {task: "Hiccup"},
                 {task: "Make soup"},
+                {task: "Hiccup"},
                 {task: "Read"}
             ]
         }
@@ -29,6 +31,7 @@ export const volunteersListReducer = (state = initialState, action) => {
                 volunteers: [
                     ...state.volunteers,
                     {
+                        id: action.payload.id,
                         username: action.payload.username,
                         tasks: [
                             {task: ""}

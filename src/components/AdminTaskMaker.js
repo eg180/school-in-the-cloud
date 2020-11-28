@@ -52,6 +52,7 @@ const StyledTaskContainerDiv = styled.div`
     }
     li {
         font-size: 1.5rem;
+        cursor: pointer
     }
     .volunteer-card {
         border: 5px solid black;
@@ -102,7 +103,7 @@ export const AdminTaskMaker = (props) => {
     const handleDelete = (e) => {
         e.preventDefault();
         console.log('x clicked')
-        setXClicked(true);
+        setXClicked(!xClicked);
     };
 
     return (

@@ -31,7 +31,7 @@ export const volunteersListReducer = (state = initialState, action) => {
                     {
                         username: action.payload.username,
                         tasks: [
-                            {task: action.payload.task}
+                            {task: ""}
                         ]
                     }
                 ]
@@ -41,7 +41,16 @@ export const volunteersListReducer = (state = initialState, action) => {
 
             return {
                 ...state,
-                tasks: [action.payload.task] 
+                volunteers: [
+                    ...state.volunteers,
+                    {
+                        username: action.payload.username,
+                        tasks: [
+                            {task: action.payload.tasks}
+                        ]
+                    }
+                ]
+
             }
         default:
             return state;

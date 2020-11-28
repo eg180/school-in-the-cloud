@@ -34,13 +34,15 @@ const StyledTaskContainerDiv = styled.div`
     }
 `;
 
+
+
 export const AdminTaskMaker = (props) => {
     const [volunteerFormState, setVolunteerFormState] = useState({username: "", tasks: [{task: ""}]});
     const [taskObjects, setTaskObjects] = useState([{task: ""}]);
 
-    useEffect(() => {
-        console.log('volunteer prob updated')
-    },[props.volunteers]);
+    // useEffect(() => {
+    //     console.log('volunteer prob updated')
+    // },[props.volunteers]);
 
   
 

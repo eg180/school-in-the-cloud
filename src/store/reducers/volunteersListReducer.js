@@ -20,13 +20,21 @@ const initialState = {
 }
 export const volunteersListReducer = (state = initialState, action) => {
 
+
     switch (action.type) {
         case ADD_VOLUNTEER:
-            
 
             return {
                 ...state,
-                tasks: [{tasks: ""}]
+                volunteers: [
+                    ...state.volunteers,
+                    {
+                        username: action.payload.username,
+                        tasks: [
+                            {task: action.payload.task}
+                        ]
+                    }
+                ]
 
             }
         case ADD_TASK:

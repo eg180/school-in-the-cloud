@@ -97,7 +97,7 @@ export const AdminTaskMaker = (props) => {
                             return (
                             <div>
                                 <div>
-                                    {volunteer.username}
+                                    <h1>{volunteer.username}</h1>
                                 </div>
                                 <div>
                                     {volunteer.tasks.map((sub) => {

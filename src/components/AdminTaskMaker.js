@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
+import { v4 as uuidv4 } from 'uuid';
 import { createTask, strikeTask } from '../store/actions';
 import '../index.css';
 import styled, { css } from 'styled-components';
@@ -68,13 +69,11 @@ const StyledTaskContainerDiv = styled.div`
 
 
 export const AdminTaskMaker = (props) => {
-    const [volunteerFormState, setVolunteerFormState] = useState({username: "", tasks: [{task: "", complete: false}]});
-    const [taskObjects, setTaskObjects] = useState([{task: ""}]);
+    const [volunteerFormState, setVolunteerFormState] = useState({id: '', username: "", tasks: [{task: "", task_id: "", complete: false}]});
+    const [taskObjects, setTaskObjects] = useState([{id: uuidv4(), task: ""}]);
     const [xClicked, setXClicked] = useState(false);
 
-    useEffect(() => {
-        console.log('item was cleared')
-    },[xClicked]);
+
 
     useEffect(() => {
         console.log('volunteer task changed')
@@ -90,12 +89,17 @@ export const AdminTaskMaker = (props) => {
         if (e.target.name === "username") {
             setVolunteerFormState({
                 ...volunteerFormState,
-                [e.target.name]: e.target.value
+                username: e.target.value
             })
         } else {
             setVolunteerFormState({
                 ...volunteerFormState,
-                tasks: [e.target.value]
+                id: uuidv4(),
+                ...volunteerFormState.tasks,
+                task: e.target.value,
+                task_id: uuidv4()
+
+                
             })
         }
     }
@@ -107,14 +111,13 @@ export const AdminTaskMaker = (props) => {
 
     }
 
-    const handleDelete = (subtask) => {
+    const handleDelete = (sub) => {
         // props.volunteers.map((volunteer, indx) => {
         //     console.log(volunteer.username)
         // })
-        console.log(subtask)
+        console.log('inside handleDelete')
 
-        setXClicked(!xClicked);
-        strikeTask(subtask)
+        props.strikeTask(sub)
 
     };
 
@@ -150,7 +153,7 @@ export const AdminTaskMaker = (props) => {
                                     {volunteer.tasks.map((sub) => {
                                         return (
                                             
-                                            <li style={{textDecoration: xClicked ? "line-through" : ""}}>{sub.task}<span className="delete" onClick={() => handleDelete(sub.task)}>❌</span></li>
+                                            <li style={{textDecoration: sub.complete === true ? "line-through" : ""}}>{sub.task}›<span className="delete" onClick={() => handleDelete(sub)}>❌</span></li>
                                         )
                                     })}
                                 </div>

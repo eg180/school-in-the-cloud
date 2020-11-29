@@ -75,10 +75,10 @@ export const createTask = (newTask) => {
     }
 }
 
-export const strikeTask = (taskDescription) => {
-    console.log('inside strikeTask', taskDescription);
+export const strikeTask = (subContext) => {
+    console.log('inside strikeTask with subContext data of', subContext)
     return (dispatch) => {
-        dispatch({ type: COMPLETE_TASK, payload: taskDescription })
+        dispatch({ type: COMPLETE_TASK, payload: subContext })
     }
 }
 

@@ -13,6 +13,8 @@ export const ADD_VOLUNTEER = "ADD_VOLUNTEER";
 
 export const ADD_TASK = "ADD_TASK";
 
+export const COMPLETE_TASK = "COMPLETE_TASK";
+
 
 export const setAdmin = () => {
     return (dispatch) => {
@@ -70,6 +72,13 @@ export const createTask = (newTask) => {
     console.log('about to dispatch ADD_TASK - LINE 70 IN INDEX.JS')
     return (dispatch) => {
         dispatch({ type:  ADD_TASK, payload: newTask })
+    }
+}
+
+export const strikeTask = (taskDescription) => {
+    console.log('inside strikeTask', taskDescription);
+    return (dispatch) => {
+        dispatch({ type: COMPLETE_TASK, payload: taskDescription })
     }
 }
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
-import { createTask } from '../store/actions';
+import { createTask, strikeTask } from '../store/actions';
 import '../index.css';
 import styled, { css } from 'styled-components';
 
@@ -51,7 +51,10 @@ const StyledTaskContainerDiv = styled.div`
         font-size: 4rem;
     }
     li {
-        font-size: 1.5rem;
+        font-size: 1.25rem
+    }
+    .delete {
+        font-size: .75rem;
         cursor: pointer
     }
     .volunteer-card {
@@ -65,13 +68,17 @@ const StyledTaskContainerDiv = styled.div`
 
 
 export const AdminTaskMaker = (props) => {
-    const [volunteerFormState, setVolunteerFormState] = useState({username: "", tasks: [{task: ""}]});
+    const [volunteerFormState, setVolunteerFormState] = useState({username: "", tasks: [{task: "", complete: false}]});
     const [taskObjects, setTaskObjects] = useState([{task: ""}]);
     const [xClicked, setXClicked] = useState(false);
 
     useEffect(() => {
         console.log('item was cleared')
     },[xClicked]);
+
+    useEffect(() => {
+        console.log('volunteer task changed')
+    },[props.volunteers]);
 
   
 
@@ -100,10 +107,15 @@ export const AdminTaskMaker = (props) => {
 
     }
 
-    const handleDelete = (e) => {
-        e.preventDefault();
-        console.log('x clicked')
+    const handleDelete = (subtask) => {
+        // props.volunteers.map((volunteer, indx) => {
+        //     console.log(volunteer.username)
+        // })
+        console.log(subtask)
+
         setXClicked(!xClicked);
+        strikeTask(subtask)
+
     };
 
     return (
@@ -138,7 +150,7 @@ export const AdminTaskMaker = (props) => {
                                     {volunteer.tasks.map((sub) => {
                                         return (
                                             
-                                            <li style={{textDecoration: xClicked ? "line-through" : ""}}>{sub.task}<span className="delete" onClick={handleDelete}>❌</span></li>
+                                            <li style={{textDecoration: xClicked ? "line-through" : ""}}>{sub.task}<span className="delete" onClick={() => handleDelete(sub.task)}>❌</span></li>
                                         )
                                     })}
                                 </div>
@@ -158,5 +170,5 @@ const mapStateToProps = (state) => ({
 })
 
 
-export default connect(mapStateToProps, { createTask })(AdminTaskMaker)
+export default connect(mapStateToProps, { createTask, strikeTask })(AdminTaskMaker)
 
